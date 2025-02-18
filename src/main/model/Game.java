@@ -1,4 +1,4 @@
-package model;
+package main.model;
 
 // Game is responsible for both the actions and setup for the game.
 public class Game {
@@ -13,6 +13,7 @@ public class Game {
         turn = (int) (Math.random() * 3);
     }
 
+    // MODIFIES: playerMove
     // EFFECTS: sets playerMove
     public void setPlayerMove(int playerMove) {
         this.playerMove = playerMove;
@@ -21,6 +22,17 @@ public class Game {
     // EFFECTS: returns playerMove
     public int getPlayerMove() {
         return playerMove;
+    }
+
+    // EFFECTS: returns the number total
+    public int getTotal() {
+        return total;
+    }
+
+    // MODIFIES: total
+    // EFFECTS: sets total
+    public void setTotal(int total) {
+        this.total = total;
     }
 
     // EFFECTS: computer chooses its next move
