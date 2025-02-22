@@ -7,7 +7,6 @@ public class Game {
     private int playerMove;
     private String playerName;
 
-
     public Game() {
         total = (int) ((Math.random() * 11) + 20);
         turn = (int) (Math.random() * 3);
@@ -35,26 +34,29 @@ public class Game {
         this.total = total;
     }
 
-    // EFFECTS: computer chooses its next move
-    public int computerTurn() {
-        if ((total % 4) == 1) { // ex: 5
-            return 1;
-        } else if ((total % 4) == 2) { // ex: 6
-            return 2;
-        } else if ((total % 4) == 3) { // ex: 7
-            return 3;
-        } else {
-            return (int) (Math.random() * 4);
-        }
+    // REQUIRES: an interger 1-2
+    // MODIFIES: turn
+    // EFFECTS: changes the turn
+    public void setTurn(int turn) {
+        this.turn = turn;
     }
 
     // EFFECTS: returns the name of the current player
-    public String getCurrentTurn() {
+    public String getTurn() {
         if (turn == 1) {
             return playerName;
         } else {
             return "CPU";
         }
     }
-    
+
+    // EFFECTS: computer chooses its next move
+    public int computerTurn() {
+        if ((total % 4) != 0) {
+            return total % 4;
+        } else {
+            return (int) (Math.random() * 4);
+        }
+    }
+
 }
