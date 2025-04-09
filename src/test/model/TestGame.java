@@ -17,12 +17,29 @@ public class TestGame {
     @Test
     void testComputerTurn() {
         game.setTotal(21);
-        assertEquals(1, game.computerTurn());
+        assertEquals(game.getTotal()-20, game.computerTurn());
 
         game.setTotal(22);
-        assertEquals(2, game.computerTurn());
+        assertEquals(game.getTotal()-20, game.computerTurn());
 
         game.setTotal(23);
-        assertEquals(3, game.computerTurn());
+        assertEquals(game.getTotal()-20, game.computerTurn());
+    }
+
+    @Test
+    void testGettersAndSetters() {
+        game.setPlayerMove(1);
+        assertEquals(1, game.getPlayerMove());
+
+        game.setTurn(1);
+        assertNull(game.getTurn());
+
+        game.setTurn(2);
+        assertEquals("CPU", game.getTurn());
+    }
+
+    @Test
+    void testMove() {
+        
     }
 }

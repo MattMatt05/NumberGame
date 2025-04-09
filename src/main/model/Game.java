@@ -5,11 +5,11 @@ public class Game {
     private int total;
     private int turn;
     private int playerMove;
-    private String playerName;
+    private String playerName = "Player";
 
     public Game() {
         total = (int) ((Math.random() * 11) + 20);
-        turn = (int) (Math.random() * 3);
+        turn = (int) (Math.random() * 2)+1;
     }
 
     // MODIFIES: playerMove
@@ -41,13 +41,9 @@ public class Game {
         this.turn = turn;
     }
 
-    // EFFECTS: returns the name of the current player
-    public String getTurn() {
-        if (turn == 1) {
-            return playerName;
-        } else {
-            return "CPU";
-        }
+    // EFFECTS: returns the number representing the current turn
+    public int getTurn() {
+        return turn;
     }
 
     // EFFECTS: computer chooses its next move
@@ -59,4 +55,9 @@ public class Game {
         }
     }
 
+    // MODIFIES: total
+    // EFFECTS: substracts given amount from total
+    public void move(int amount) {
+        setTotal(total - amount);
+    }
 }
